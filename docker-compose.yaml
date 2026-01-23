@@ -5,9 +5,7 @@ services:
     container_name: frostbyte-db
     restart: unless-stopped
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: frostbyte_db
+      POSTGRES_PASSWORD: postgres 
     ports:
       - "5432:5432"
     volumes:
@@ -34,14 +32,11 @@ services:
       DB_PORT: 5432
       DB_USER: postgres
       DB_PASSWORD: postgres
-      DB_NAME: frostbyte_db
+      DB_NAME: postgres 
       PORT: 8000
     depends_on:
       db:
         condition: service_healthy
-    volumes:
-      - ./server:/usr/src/app
-      - /usr/src/app/node_modules
 
 volumes:
   postgres_data:
